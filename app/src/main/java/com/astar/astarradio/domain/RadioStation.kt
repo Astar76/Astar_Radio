@@ -1,4 +1,4 @@
-package com.astar.astarradio.data
+package com.astar.astarradio.domain
 
 data class RadioStation(
     val name: String,

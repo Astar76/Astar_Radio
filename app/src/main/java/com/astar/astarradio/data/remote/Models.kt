@@ -20,7 +20,7 @@ data class RadioStationCloud(
     @SerializedName("channel_id")
     val channelId: Int,
     @SerializedName("countryCode")
-    val countryCode: String,
+    val countryCode: String?,
     @SerializedName("genre")
     val genre: String
 )
