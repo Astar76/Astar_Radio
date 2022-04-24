@@ -11,6 +11,7 @@ interface RadioStationDomainMapper {
     class Base @Inject constructor() : RadioStationDomainMapper {
         override fun map(station: RadioStationCloud) = RadioStation(
             name = station.name,
+            preview = station.preview,
             streamingUrl = station.streamingUrl,
             countryCode = station.countryCode ?: "none",
             genre = station.genre

@@ -3,9 +3,14 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/User/AndroidStudioProjects/AstarRadio/app/src/main/res/layout/activity_main.xml" value="0.9798387096774194" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/AstarRadio/app/src/main/res/drawable/cover_background_drawable.xml" value="0.144" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/AstarRadio/app/src/main/res/layout/activity_main.xml" value="0.2" />
         <entry key="..\:/Users/User/AndroidStudioProjects/AstarRadio/app/src/main/res/layout/content_main.xml" value="0.9798387096774194" />
-        <entry key="..\:/Users/User/AndroidStudioProjects/AstarRadio/app/src/main/res/layout/radio_item.xml" value="0.16" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/AstarRadio/app/src/main/res/layout/fragment_favorite.xml" value="0.24567474048442905" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/AstarRadio/app/src/main/res/layout/fragment_play_radio.xml" value="0.1" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/AstarRadio/app/src/main/res/layout/fragment_radio_list.xml" value="0.2526041666666667" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/AstarRadio/app/src/main/res/layout/radio_item.xml" value="0.264" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/AstarRadio/app/src/main/res/menu/menu_main.xml" value="0.1" />
       </map>
     </option>
   </component>

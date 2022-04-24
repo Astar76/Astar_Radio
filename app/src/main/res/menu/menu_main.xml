@@ -1,10 +1,17 @@
-<menu xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    tools:context="com.astar.astarradio.presentation.MainActivity">
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
     <item
-        android:id="@+id/action_settings"
-        android:orderInCategory="100"
-        android:title="@string/action_settings"
-        app:showAsAction="never" />
+        android:id="@+id/navigation_play_radio"
+        android:icon="@drawable/ic_baseline_play"
+        android:title="@string/play_radio" />
+
+    <item
+        android:id="@+id/navigation_radio_list"
+        android:icon="@drawable/ic_baseline_radio"
+        android:title="@string/radio_stations" />
+
+    <item
+        android:id="@+id/navigation_favorite"
+        android:icon="@drawable/ic_baseline_favorite"
+        android:title="@string/favorite" />
 </menu>
