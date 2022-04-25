@@ -3,14 +3,14 @@ package com.astar.astarradio.data.remote
 import com.google.gson.annotations.SerializedName
 
 data class RadioStationsCloud(
-    @SerializedName("radios") val list: List<RadioStationCloud>
+    @SerializedName("radios") val list: List<RadioCloud>
 )
 
 data class SimpleRadioStationCloud(
-    @SerializedName("radio") val radio: RadioStationCloud
+    @SerializedName("radio") val radio: RadioCloud
 )
 
-data class RadioStationCloud(
+data class RadioCloud(
     @SerializedName("image_url")
     val preview: String,
     @SerializedName("name")

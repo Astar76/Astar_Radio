@@ -1,16 +1,21 @@
-package com.astar.astarradio.presentation
+package com.astar.astarradio.presentation.radiolist
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.astar.astarradio.R
 import com.astar.astarradio.databinding.RadioItemBinding
-import com.astar.astarradio.domain.RadioStation
+import com.astar.astarradio.presentation.RadioUi
 import com.bumptech.glide.Glide
 
-class RadiosAdapter(private val callback: Callback) : RecyclerView.Adapter<RadiosAdapter.RadioViewHolder>() {
+interface RadioActionCallback {
+    fun onClickItem(station: RadioUi)
+    fun onClickFavorite(station: RadioUi)
+}
 
-    var radios: List<RadioStation> = emptyList()
+class RadioAdapter(private val callback: RadioActionCallback) : RecyclerView.Adapter<RadioAdapter.RadioViewHolder>() {
+
+    var radios: List<RadioUi> = emptyList()
         set(value) {
             field = value
             notifyDataSetChanged()
@@ -29,7 +34,14 @@ class RadiosAdapter(private val callback: Callback) : RecyclerView.Adapter<Radio
         holder.binding.name.text = radioStation.name
         holder.binding.name.isSelected = true
 
-        Glide.with(context).load(radioStation.preview).into(holder.binding.icon)
+        holder.binding.favorite.setImageResource(
+            if (radioStation.isFavorite)
+                R.drawable.ic_baseline_favorite
+            else
+                R.drawable.ic_baseline_favorite_border
+        )
+
+        Glide.with(context).load(radioStation.previewUrl).into(holder.binding.icon)
 
         holder.itemView.setOnClickListener {
             callback.onClickItem(radioStation)
@@ -44,9 +56,4 @@ class RadiosAdapter(private val callback: Callback) : RecyclerView.Adapter<Radio
     inner class RadioViewHolder(
         val binding: RadioItemBinding,
     ) : RecyclerView.ViewHolder(binding.root)
-
-    interface Callback {
-        fun onClickItem(station: RadioStation)
-        fun onClickFavorite(station: RadioStation)
-    }
 }

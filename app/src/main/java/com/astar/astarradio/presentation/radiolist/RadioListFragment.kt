@@ -15,23 +15,22 @@ import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.RecyclerView
 import com.astar.astarradio.R
 import com.astar.astarradio.databinding.FragmentRadioListBinding
-import com.astar.astarradio.presentation.RadiosAdapter
-import com.astar.astarradio.core.Result
-import com.astar.astarradio.domain.RadioStation
+import com.astar.astarradio.domain.RadioDomain
+import com.astar.astarradio.presentation.RadioUi
 import com.astar.astarradio.presentation.radiolist.RadioListResult.*
 import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
 import kotlin.properties.Delegates
 
 @AndroidEntryPoint
-class RadioListFragment: Fragment(), RadiosAdapter.Callback {
+class RadioListFragment: Fragment() {
 
     private var _binding: FragmentRadioListBinding? = null
     private val binding: FragmentRadioListBinding get() = _binding!!
 
     private val viewModel: RadioListViewModel by viewModels()
 
-    private var adapter: RadiosAdapter by Delegates.notNull()
+    private var adapter: RadioAdapter by Delegates.notNull()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -40,7 +39,7 @@ class RadioListFragment: Fragment(), RadiosAdapter.Callback {
     ): View {
         _binding = FragmentRadioListBinding.inflate(inflater, container, false)
 
-        adapter = RadiosAdapter(this)
+        adapter = RadioAdapter(viewModel)
 
         val divider = DividerItemDecoration(requireContext(), RecyclerView.VERTICAL)
         divider.setDrawable(ColorDrawable(ContextCompat.getColor(requireContext(), R.color.colorDivider)))
@@ -67,14 +66,6 @@ class RadioListFragment: Fragment(), RadiosAdapter.Callback {
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
-    }
-
-    override fun onClickItem(station: RadioStation) {
-        Snackbar.make(requireView(), "Item click - ${station.name}", Snackbar.LENGTH_SHORT).show()
-    }
-
-    override fun onClickFavorite(station: RadioStation) {
-        Snackbar.make(requireView(), "Click favorite - ${station.name}", Snackbar.LENGTH_SHORT).show()
     }
 
     private fun toast(message: String) {
